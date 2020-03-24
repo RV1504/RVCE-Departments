@@ -22,7 +22,7 @@ import com.inhall.rvcedepartments.Entity.DepartmentEntity;
 import java.util.ArrayList;
 
 public class HomeScreenActivity extends AppCompatActivity implements  DepartmentsRecyclerViewAdapter.OnDepartmentClickLister {
-
+//objects
     private TextView name;
     private RecyclerView recyclerView;
     private DepartmentsRecyclerViewAdapter adapter;

@@ -10,7 +10,7 @@ import com.inhall.rvcedepartments.Entity.DepartmentEntity;
 
 public class FaculityListActivity extends AppCompatActivity {
     private TextView textView;
-    private DepartmentEntity departmentEntity;
+    private DepartmentEntity departmentEntity; //which department the user clicked
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,12 +19,10 @@ public class FaculityListActivity extends AppCompatActivity {
 
         departmentEntity = getIntent().getParcelableExtra("DEPARTMENT");
         if (departmentEntity == null){
-            Toast.makeText(this, "Something went rong", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Something went wrong", Toast.LENGTH_SHORT).show();
             return;
         }
 
-        textView = findViewById(R.id.department_name);
 
-        textView.setText(departmentEntity.getDepartmentName());
     }
 }

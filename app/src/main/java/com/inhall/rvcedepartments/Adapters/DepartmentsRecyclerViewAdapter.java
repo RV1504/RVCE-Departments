@@ -61,4 +61,6 @@ public class DepartmentsRecyclerViewAdapter extends RecyclerView.Adapter<Departm
     public interface OnDepartmentClickLister{
         void onDepartmentClicked(DepartmentEntity departmentEntity);
     }
+
+
 }
