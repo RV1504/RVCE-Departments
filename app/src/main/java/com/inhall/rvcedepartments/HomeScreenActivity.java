@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -78,5 +79,11 @@ public class HomeScreenActivity extends AppCompatActivity implements  Department
         Intent intent = new Intent(HomeScreenActivity.this, FaculityListActivity.class);
         intent.putExtra("DEPARTMENT",departmentEntity);
         startActivity(intent);
+    }
+    public void logout(View view)
+    {
+        FirebaseAuth.getInstance().signOut();//logout of user
+        startActivity(new Intent(getApplicationContext(),login.class));
+        finish();
     }
 }

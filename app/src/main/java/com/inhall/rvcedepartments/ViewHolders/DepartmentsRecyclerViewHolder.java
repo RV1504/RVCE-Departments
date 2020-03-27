@@ -20,7 +20,7 @@ public class DepartmentsRecyclerViewHolder extends RecyclerView.ViewHolder {
         departentName = itemView.findViewById(R.id.department_name);
     }
 
-    public void polulate(DepartmentEntity departmentEntity){
+    public void populate(DepartmentEntity departmentEntity){
         itemView.setTag(departmentEntity);
         departentName.setText(departmentEntity.getDepartmentName());
     }

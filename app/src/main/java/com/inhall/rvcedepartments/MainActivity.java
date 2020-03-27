@@ -21,10 +21,9 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity {
-
     EditText mFullName, mEmail, mPassword, mPhone;
     Button mRegister;
-    TextView mLoginBtn;
+    TextView mLoginTxt;
     FirebaseAuth fAuth;
     ProgressBar progressBar;
 
@@ -38,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
         mPassword = findViewById(R.id.password);
         mPhone = findViewById(R.id.phone);
         mRegister = findViewById(R.id.reg_btn);
-        mLoginBtn = findViewById(R.id.loginText);
+        mLoginTxt = findViewById(R.id.loginText);
 
         fAuth = FirebaseAuth.getInstance();
 
@@ -59,39 +58,47 @@ public class MainActivity extends AppCompatActivity {
                     mEmail.setError("Email is Required");
                     return;
                 }
-                if (TextUtils.isEmpty(email)) {
+                /*if (TextUtils.isEmpty(email)) {
                     mEmail.setError("Email is Required");
                     return;
                 }
                 if (TextUtils.isEmpty(email)) {
                     mEmail.setError("Email is Required");
                     return;
-                }
+                }*/
 
                 progressBar.setVisibility(View.VISIBLE);
 
-                fAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                fAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            Intent intent = new Intent(MainActivity.this, HomeScreenActivity.class);
-                            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                            startActivity(intent);
+                            Toast.makeText(MainActivity.this, "User Created", Toast.LENGTH_SHORT).show();
+                            startActivity(new Intent(getApplicationContext(), HomeScreenActivity.class));
                         } else {
-                            Toast.makeText(MainActivity.this, "Error" + task.getException(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(MainActivity.this, "Error" + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+
                             progressBar.setVisibility(View.GONE);
                         }
+
                     }
                 });
             }
         });
 
-        mLoginBtn.setOnClickListener(new View.OnClickListener() {
+        mLoginTxt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getApplicationContext(), login.class));
             }
+
         });
+
     }
 }
+
+
+
+
+
 

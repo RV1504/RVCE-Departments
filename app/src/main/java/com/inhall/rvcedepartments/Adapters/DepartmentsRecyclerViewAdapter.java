@@ -50,7 +50,7 @@ public class DepartmentsRecyclerViewAdapter extends RecyclerView.Adapter<Departm
 
     @Override
     public void onBindViewHolder(@NonNull DepartmentsRecyclerViewHolder holder, int position) {
-        holder.polulate(departmentEntities.get(position));
+        holder.populate(departmentEntities.get(position));
     }
 
     @Override

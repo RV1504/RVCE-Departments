@@ -22,33 +22,34 @@ public class login extends AppCompatActivity {
 
 
     EditText mFullName, mEmail, mPassword, mPhone;
-    Button mRegister;
-    TextView mLoginBtn;
+    Button mLoginBtn;
+
     FirebaseAuth fAuth;
     ProgressBar progressBar;
+    TextView mRegisterTxt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_login);
+
+        Toast.makeText(this, "this is login page", Toast.LENGTH_SHORT).show();
 
         mFullName = findViewById(R.id.fullname);
         mEmail = findViewById(R.id.email);
         mPassword = findViewById(R.id.password);
         mPhone = findViewById(R.id.phone);
-        mRegister = findViewById(R.id.reg_btn);
-        mLoginBtn = findViewById(R.id.loginText);
+        //mRegister = findViewById(R.id.reg_btn);
+        mLoginBtn = findViewById(R.id.login_btn);
+        mRegisterTxt=findViewById(R.id.registerText);
+
 
         fAuth = FirebaseAuth.getInstance();
 
         progressBar = findViewById(R.id.progressBar);
 
-        if (fAuth.getCurrentUser() != null) {
-            startActivity(new Intent(getApplicationContext(), MainActivity.class));
-            finish();
-        }
 
-        mRegister.setOnClickListener(new View.OnClickListener() {
+        mLoginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String email = mEmail.getText().toString().trim();
@@ -58,14 +59,14 @@ public class login extends AppCompatActivity {
                     mEmail.setError("Email is Required");
                     return;
                 }
-                if (TextUtils.isEmpty(email)) {
+                /*if (TextUtils.isEmpty(email)) {
                     mEmail.setError("Email is Required");
                     return;
                 }
                 if (TextUtils.isEmpty(email)) {
                     mEmail.setError("Email is Required");
                     return;
-                }
+                }*/
 
                 progressBar.setVisibility(View.VISIBLE);
 
@@ -84,9 +85,10 @@ public class login extends AppCompatActivity {
                 });
             }
         });
-        mLoginBtn.setOnClickListener(new View.OnClickListener() {
+        mRegisterTxt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Toast.makeText(login.this, "going to registration page", Toast.LENGTH_SHORT).show();
                 startActivity(new Intent(getApplicationContext(),MainActivity.class));
             }
         });
