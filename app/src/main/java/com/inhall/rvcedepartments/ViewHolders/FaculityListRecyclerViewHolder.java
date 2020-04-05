@@ -10,17 +10,18 @@ import com.inhall.rvcedepartments.Entity.FaculityListEntity;
 import com.inhall.rvcedepartments.R;
 
 public class FaculityListRecyclerViewHolder extends RecyclerView.ViewHolder {
-    private TextView name, email, experience;
+    private TextView name, email, phone;
     public FaculityListRecyclerViewHolder(@NonNull View itemView) {
         super(itemView);
         name = itemView.findViewById(R.id.name);
         email = itemView.findViewById(R.id.email);
-        experience = itemView.findViewById(R.id.experience);
+        phone = itemView.findViewById(R.id.experience);
     }
 
     public void populate(FaculityListEntity entity){
         name.setText(entity.getName());
         email.setText(entity.getEmail());
-        experience.setText(entity.getExperience());
+        phone.setText(entity.getExperience());
     }
 }
+

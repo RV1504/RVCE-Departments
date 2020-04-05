@@ -32,7 +32,7 @@ public class FaculityListRecyclerViewAdapter extends RecyclerView.Adapter<Faculi
     @NonNull
     @Override
     public FaculityListRecyclerViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = layoutInflater.inflate(R.layout.faculity_list_recycler_view_arch, parent, false);
+        View view = layoutInflater.inflate(R.layout.faculity_list_recycler_view_arch, parent,false);
         FaculityListRecyclerViewHolder faculityListRecyclerViewHolder = new FaculityListRecyclerViewHolder(view);
         return faculityListRecyclerViewHolder;
     }

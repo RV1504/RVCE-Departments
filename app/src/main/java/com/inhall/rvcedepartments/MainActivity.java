@@ -89,6 +89,7 @@ public class MainActivity extends AppCompatActivity {
         mLoginTxt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //Toast.makeText(MainActivity.this, "This is The Login Page", Toast.LENGTH_SHORT).show();
                 startActivity(new Intent(getApplicationContext(), login.class));
             }
 

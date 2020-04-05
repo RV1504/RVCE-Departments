@@ -88,7 +88,7 @@ public class login extends AppCompatActivity {
         mRegisterTxt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(login.this, "going to registration page", Toast.LENGTH_SHORT).show();
+                Toast.makeText(login.this, "This is The Registration Page", Toast.LENGTH_SHORT).show();
                 startActivity(new Intent(getApplicationContext(),MainActivity.class));
             }
         });
